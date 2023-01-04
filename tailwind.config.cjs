@@ -6,7 +6,7 @@ module.exports = {
 		colors: {
 			'dark-bg': '#262B3CE3',
 			'white-bg': '#E5E5E5',
-			'white-bg-light': "#F3F3F3",
+			'white-bg-light': '#F3F3F3',
 			green: '#6AAA64',
 			yellow: '#CEB02C',
 			gray: '#939B9F',
@@ -16,7 +16,7 @@ module.exports = {
 			'light-white': '#DADCE0',
 			'bglight-white': '#DADCE008',
 			white: '#FFFFFF',
-			'letter': '#939B9F4D',
+			'letter-empty': '#939B9F4D',
 			'letter-light': '#818181',
 			'letter-dark': '#565F7E',
 		},
