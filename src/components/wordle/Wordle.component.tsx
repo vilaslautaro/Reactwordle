@@ -1,15 +1,15 @@
 import { FC, useCallback, useEffect, useReducer } from 'react'
-import { useWordNow } from '../../context/wordNow.context'
+import { useWordNow } from '../../context'
+import { useWindowEvents } from '../../hooks'
+import { statusGame } from '../../../types'
 import wordleReducer, { initialState } from './wordleReducer.reducer'
 import { EmptyRow } from '../rows/EmptyRow.component'
 import { CompletedRow } from '../rows/CompletedRow.component'
 import { CurrentRow } from '../rows/CurrentRow.component'
-import { useWindowEvents } from '../../hooks'
-import { generateNewWord } from '../../utils'
-import { keys } from '../../data/keys'
-import { statusGame } from '../../../types'
+import { keys } from '../../data'
+import { ModalContainer } from '../modals/ContainerModals.component'
 
-export const WordleTwo: FC = () => {
+export const Wordle: FC = () => {
 	const { word: wordNow } = useWordNow()
 	const [{ completedWords, turn, currentWord, gameStatus }, dispatchWordle] =
 		useReducer(wordleReducer, initialState)
@@ -46,11 +46,11 @@ export const WordleTwo: FC = () => {
 		[gameStatus, currentWord, turn]
 	)
 
-	useWindowEvents('keydown', handleKeyDown)
-
 	useEffect(() => {
-		dispatchWordle({ type: 'reset', payload: generateNewWord(0) })
-	}, [])
+		dispatchWordle({ type: 'reset' })
+	}, [wordNow])
+
+	useWindowEvents('keydown', handleKeyDown)
 
 	return (
 		<div className='w-full grid place-content-center mx-auto'>
@@ -63,6 +63,7 @@ export const WordleTwo: FC = () => {
 					<EmptyRow key={i} />
 				))}
 			</div>
+			<ModalContainer />
 		</div>
 	)
 }

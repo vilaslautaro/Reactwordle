@@ -1,4 +1,4 @@
-import { arrayWords } from '../data/words'
+import { arrayWords } from '../data'
 
 //This file and function is created with the intention of emulating the call to the api with the words
 export const getWords = () => {

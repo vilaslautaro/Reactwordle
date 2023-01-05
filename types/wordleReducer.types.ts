@@ -5,9 +5,9 @@ export type ACTION_TYPE =
 	| { type: 'lost'; payload: string }
 	| { type: 'stadistics'; payload: string }
 	| { type: 'continue'; payload: string }
-	| { type: 'reset'; payload: string }
 	| { type: 'onInput'; payload: string }
 	| { type: 'delete' }
+	| { type: 'reset' }
 
 export type INITIAL_STATE = {
 	turn: number

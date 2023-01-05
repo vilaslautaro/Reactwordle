@@ -1,8 +1,7 @@
 export const savedTimeStorage = (time: number) => {
 	const valueTime = getTimeStorage()
-	console.log(valueTime)
 	if (valueTime && valueTime < 972) {
-		localStorage.setItem('time', JSON.stringify(valueTime + time))
+		localStorage.setItem('time', JSON.stringify(valueTime + 1))
 	} else {
 		localStorage.setItem('time', JSON.stringify(time))
 	}

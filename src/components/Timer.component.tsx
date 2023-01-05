@@ -4,7 +4,7 @@ interface Props {
 	seconds: number
 }
 
-const Timer = ({ seconds }: Props) => {
+export const Timer = ({ seconds }: Props) => {
 	const { time } = useCountdown(seconds)
 
 	return (
@@ -14,4 +14,3 @@ const Timer = ({ seconds }: Props) => {
 	)
 }
 
-export default Timer
