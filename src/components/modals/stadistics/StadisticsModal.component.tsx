@@ -1,7 +1,7 @@
-import { useGamesStadistics, useWordNow } from '../../context'
-import { statusGame } from '../../../types'
-import { usePortal } from '../../hooks'
-import { Timer } from '../Timer.component'
+import { useGamesStadistics, useWordNow } from '../../../context'
+import { statusGame } from '../../../../types'
+import { usePortal } from '../../../hooks'
+import { Timer } from './Timer.component'
 
 interface Props {
 	onClose: () => void

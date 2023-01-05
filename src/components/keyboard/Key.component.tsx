@@ -14,10 +14,12 @@ export const Key: FC<KeyProps> = ({
 	return (
 		<button
 			onClick={handleClickKey}
-			className={`${size === 'big' ? 'w-20 h-16' : 'w-12 h-16'}
-            border-gray-600 bg-gray-600 m-1 cursor-pointer border-none rounded text-white flex justify-center items-center`}
+			className={`${size === 'big' ? 'w-[71px]' : 'w-[44px] '}
+            bg-keyboard-box dark:bg-light-gray h-[51px] m-1.5 px-2 cursor-pointer rounded
+			 text-light-gray dark:text-white flex justify-center items-center font-medium
+			 hover:shadow-md dark:hover:bg-opacity-70`}
 		>
-			{children}
+			<p className='font-semibold text-lg text-center'>{children}</p>
 		</button>
 	)
 }

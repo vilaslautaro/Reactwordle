@@ -1,3 +1,4 @@
-export * from './CompletedRow.component'
-export * from './CurrentRow.component'
-export * from './EmptyRow.component'
+
+export * as CompletedRow from './CompletedRow.component'
+export * as CurrentRow from './CurrentRow.component'
+export * as EmptyRow from './EmptyRow.component'

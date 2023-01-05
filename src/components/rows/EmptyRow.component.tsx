@@ -1,7 +1,8 @@
 import { LetterBox } from './LetterBox.component'
-import { BoxFlexRow } from '../ui/BoxFlexRow.component'
+import { BoxFlexRow } from './BoxFlexRow.component'
+import { memo } from 'react'
 
-export const EmptyRow = () => {
+const EmptyRow = () => {
 	return (
 		<BoxFlexRow>
 			{Array.from(Array(5)).map((_, i) => (
@@ -10,3 +11,5 @@ export const EmptyRow = () => {
 		</BoxFlexRow>
 	)
 }
+
+export default memo(EmptyRow)

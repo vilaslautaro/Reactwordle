@@ -18,7 +18,7 @@ export const LetterBoxModal: FC<LetterProps> = ({ value, status }) => {
 
 	return (
 		<div
-			className={`${statusLetter} flex font-bold ml-[11px] w-[76px] h-[76px] text-black dark:text-white items-center 
+			className={`${statusLetter} font-Roboto flex font-bold ml-[11px] w-[76px] h-[76px] text-black dark:text-white items-center 
 			justify-center rounded border-black dark:border-gray border-2 border-solid`}
 		>
 			<p className='text-4xl font-bold text-center'>{value}</p>

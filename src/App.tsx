@@ -3,21 +3,24 @@ import { Header } from './components/ui/Header.component'
 import {
 	GamesStadisticsContextProvider,
 	StatesModalsContextProvider,
+	ThemeContextProvider,
 	WordNowContextProvider,
 } from './context'
 
 function App() {
 	return (
-		<WordNowContextProvider>
-			<GamesStadisticsContextProvider>
-				<StatesModalsContextProvider>
-					<div className='bg-white-bg text-black w-full pt-3 font-Roboto dark:bg-dark-bg dark:text-white'>
-						<Header />
-						<Wordle />
-					</div>
-				</StatesModalsContextProvider>
-			</GamesStadisticsContextProvider>
-		</WordNowContextProvider>
+		<ThemeContextProvider>
+			<WordNowContextProvider>
+				<GamesStadisticsContextProvider>
+					<StatesModalsContextProvider>
+						<div className='bg-white-bg text-black w-full pt-3 font-Roboto dark:bg-dark dark:text-white'>
+							<Header />
+							<Wordle />
+						</div>
+					</StatesModalsContextProvider>
+				</GamesStadisticsContextProvider>
+			</WordNowContextProvider>
+		</ThemeContextProvider>
 	)
 }
 

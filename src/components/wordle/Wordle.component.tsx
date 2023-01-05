@@ -2,9 +2,11 @@ import { FC, useCallback, useEffect, useReducer } from 'react'
 import { useWordNow, useGamesStadistics, useStatesModals } from '../../context'
 import { useCountdown, useWindowEvents } from '../../hooks'
 import wordleReducer, { initialState } from './wordleReducer.reducer'
-import { EmptyRow, CompletedRow, CurrentRow } from '../rows'
+import CompletedRow from '../rows/CompletedRow.component'
+import CurrentRow from '../rows/CurrentRow.component'
+import EmptyRow from '../rows/EmptyRow.component'
+import Keyboard from '../keyboard/Keyboard.component'
 import { ModalContainer } from '../modals/ContainerModals.component'
-import { Keyboard } from '../keyboard/Keyboard.component'
 import { statusGame } from '../../../types'
 import { keys } from '../../data'
 
@@ -53,6 +55,7 @@ export const Wordle: FC = () => {
 
 	useEffect(() => {
 		dispatchWordle({ type: 'reset' })
+		setStadistics(false)
 	}, [wordNow])
 
 	useEffect(() => {
@@ -62,7 +65,7 @@ export const Wordle: FC = () => {
 	useWindowEvents('keydown', handleKeyDown)
 
 	return (
-		<div className='w-full grid place-content-center mx-auto '>
+		<div className='font-Roboto w-full grid place-content-center mx-auto '>
 			<div className='pt-10 mx-auto'>
 				{completedWords.map((word, i) => (
 					<CompletedRow key={i} word={word} solution={wordNow} />

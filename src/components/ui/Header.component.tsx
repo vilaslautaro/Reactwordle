@@ -1,49 +1,18 @@
 import { FC } from 'react'
-import { useStatesModals } from '../../context'
-import { useTheme } from '../../hooks'
-
-interface stateThemeValues {
-	theme: boolean
-	setTheme: (theme: boolean) => void
-}
+import { ButtonInstructions } from './ButtonInstructions.component'
+import { ButtonStadistics } from './ButtonStadistics.component'
+import { ToggleTheme } from './ToggleTheme.component'
 
 export const Header: FC = () => {
-	const { theme, setTheme }: stateThemeValues = useTheme()
-	const { setInstructions, setStadistics } = useStatesModals()
-
 	return (
-		<header className='flex flex-wrap mx-auto mb-5 py-4 mt-20 px-3 rounded-2xl row items-center justify-between  bg-white-bg-light dark:bg-bglight-white max-w-2xl max-h-20'>
-			<img
-				onClick={() => setInstructions(true)}
-				src={
-					theme
-						? 'https://res.cloudinary.com/dn7qsxzdf/image/upload/v1672855406/wordle/pregunta-dark_c3qe1s.png'
-						: 'https://res.cloudinary.com/dn7qsxzdf/image/upload/v1672855406/wordle/pregunta-light_grh8cf.png'
-				}
-				className='cursor-pointer'
-				width='27px'
-				height='27px'
-				alt='Logo instrucciones'
-				aria-label='Abrir instrucciones'
-			/>
+		<header className='font-Roboto flex flex-wrap mx-auto mb-5 py-4 mt-14 px-5 rounded-2xl row items-center justify-between  bg-white-bg-light dark:bg-bglight-white max-w-2xl max-h-20'>
+			<ButtonInstructions />
 			<p className='text-4xl leading-10 font-semibold text-light-black dark:text-light-white'>
 				WORDLE
 			</p>
 			<div className='flex flex-wrap row items-center justify-around '>
-				<button
-					className='cursor-pointer mx-1'
-					aria-label='Abrir estadisticas'
-					onClick={() => setStadistics(true)}
-				>
-					EST
-				</button>
-				<button
-					className='cursor-pointer'
-					aria-label='Cambiar modo de vista'
-					onClick={() => setTheme(!theme)}
-				>
-					{theme ? 'Light' : 'Dark'}
-				</button>
+				<ButtonStadistics />
+				<ToggleTheme />
 			</div>
 		</header>
 	)

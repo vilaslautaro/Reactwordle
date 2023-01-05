@@ -1,17 +1,21 @@
 type Props = 'dark' | 'light'
 
 export const savedThemeStorage = (theme: Props) => {
+	addClassToHtmlTag(theme)
+	localStorage.setItem('theme', JSON.stringify(theme))
+}
+
+const addClassToHtmlTag = (theme: Props) => {
+	const themeValue = getThemeStorage()
 	const htmlTag = document.documentElement.classList
-	const themeValue = getTheme()
 	if (htmlTag.value === '') {
 		htmlTag.add(theme)
 	} else {
 		htmlTag.replace(themeValue, theme)
 	}
-	localStorage.setItem('theme', JSON.stringify(theme))
 }
 
-export const getTheme = () => {
+export const getThemeStorage = () => {
 	const themeValue: string | null = localStorage.getItem('theme')
 
 	if (themeValue) {

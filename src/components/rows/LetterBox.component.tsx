@@ -12,11 +12,13 @@ export const LetterBox: FC<LetterProps> = ({ value, status }) => {
 			? 'bg-green'
 			: status === 'present'
 			? 'bg-yellow'
-			: 'bg-gray'
+			: status === 'absent'
+			? 'bg-gray'
+			: 'bg-letter-empty'
 
 	return (
 		<div
-			className={`${statusLetter} flex font-bold ml-[11px] mb-[11px] w-[76px] h-[76px] text-white items-center justify-center rounded`}
+			className={`${statusLetter} asdflex font-bold ml-[11px] mb-[11px] w-[76px] h-[76px] text-white items-center justify-center rounded`}
 		>
 			<p className='text-4xl text-center px-4 py-6'>{value}</p>
 		</div>

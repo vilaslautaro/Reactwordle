@@ -1,11 +1,12 @@
+import { memo } from 'react'
 import { LetterBox } from './LetterBox.component'
-import { BoxFlexRow } from '../ui/BoxFlexRow.component'
+import { BoxFlexRow } from './BoxFlexRow.component'
 
 interface CurrentRowProps {
 	word: string
 }
 
-export const CurrentRow = ({ word }: CurrentRowProps) => {
+const CurrentRow = ({ word }: CurrentRowProps) => {
 	return (
 		<BoxFlexRow>
 			{word.split('').map((letter: string, i: number) => {
@@ -17,3 +18,5 @@ export const CurrentRow = ({ word }: CurrentRowProps) => {
 		</BoxFlexRow>
 	)
 }
+
+export default memo(CurrentRow)

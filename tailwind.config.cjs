@@ -5,7 +5,7 @@ module.exports = {
 	theme: {
 		colors: {
 			'dark-bg': '#262B3CE3',
-			'dark': '#262B3C',
+			dark: '#262B3C',
 			'white-bg': '#E5E5E5',
 			'white-bg-light': '#F3F3F3',
 			'white-bg-transparent': '#F3F3F3e3',
@@ -21,6 +21,9 @@ module.exports = {
 			'letter-empty': '#939B9F4D',
 			'letter-light': '#818181',
 			'letter-dark': '#565F7E',
+			'keyboard-light': '#DADCE04D',
+			'keyboard-box': '#D3D6DA',
+			'keyboard-dark': '#DADCE008',
 		},
 		fontFamily: {
 			Roboto: ['Roboto', 'Arial', 'sans-serif'],
