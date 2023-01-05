@@ -1,22 +1,23 @@
-import { useTheme } from '../../hooks/useTheme.hook'
+import { FC } from 'react'
+import { useTheme } from '../../hooks'
 
 interface stateThemeValues {
 	theme: boolean
 	setTheme: (theme: boolean) => void
 }
 
-export const Header = () => {
+export const Header: FC = () => {
 	const { theme, setTheme }: stateThemeValues = useTheme()
 
 	return (
-		<header className='flex flex-wrap mx-auto mb-20 py-4 rounded-2xl row items-center justify-around bg-white-bg-light dark:bg-bglight-white max-w-2xl max-h-20'>
+		<header className='flex flex-wrap mx-auto mb-20 py-4 px-3 rounded-2xl row items-center justify-between  bg-white-bg-light dark:bg-bglight-white max-w-2xl max-h-20'>
 			<img
 				src={
 					theme
 						? 'https://res.cloudinary.com/dn7qsxzdf/image/upload/v1672855406/wordle/pregunta-dark_c3qe1s.png'
 						: 'https://res.cloudinary.com/dn7qsxzdf/image/upload/v1672855406/wordle/pregunta-light_grh8cf.png'
 				}
-				className='w-27px h-27px'
+				className='cursor-pointer'
 				width='27px'
 				height='27px'
 				alt='Logo instrucciones'
@@ -26,9 +27,9 @@ export const Header = () => {
 				WORDLE
 			</p>
 			<div className='flex flex-wrap row items-center justify-around '>
-				<button>E</button>
-				<button onClick={() => setTheme(!theme)}>
-					{theme ? 'Dark' : 'Light'}
+				<button className='cursor-pointer'>E</button>
+				<button className='cursor-pointer' onClick={() => setTheme(!theme)}>
+					{theme ? 'Light' : 'Dark'}
 				</button>
 			</div>
 		</header>

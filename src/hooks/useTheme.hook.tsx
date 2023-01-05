@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getTheme, savedThemeStorage } from '../utils/themeStorage.utils'
+import { getTheme, savedThemeStorage } from '../utils'
 
 export const useTheme = () => {
 	const valueTheme = getTheme()

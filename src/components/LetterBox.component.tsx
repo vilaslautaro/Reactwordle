@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { LetterStatus } from '../../types/status'
+import { LetterStatus } from '../../types'
 
 interface LetterProps {
 	value: string
@@ -16,7 +16,7 @@ export const LetterBox: FC<LetterProps> = ({ value, status }) => {
 
 	return (
 		<div
-			className={`${statusLetter} flex font-bold w-20 h-20 text-white items-center justify-center rounded`}
+			className={`${statusLetter} flex font-bold m-[11px] w-20 h-20 text-white items-center justify-center rounded`}
 		>
 			<p className='text-4xl text-center px-4 py-6'>{value}</p>
 		</div>
