@@ -10,7 +10,6 @@ export type ACTION_TYPE =
 	| { type: 'delete' }
 
 export type INITIAL_STATE = {
-	wordNow: string
 	turn: number
 	currentWord: string
 	completedWords: string[]

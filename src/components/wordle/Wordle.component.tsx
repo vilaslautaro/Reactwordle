@@ -1,26 +1,18 @@
 import { FC, useCallback, useEffect, useReducer } from 'react'
-import wordleReducer from './wordle/wordleReducer.reducer'
-import { EmptyRow } from './rows/EmptyRow.component'
-import { CompletedRow } from './rows/CompletedRow.component'
-import { CurrentRow } from './rows/CurrentRow.component'
-import { useWindowEvents } from '../hooks'
-import { keys } from '../data/keys'
-import { statusGame, INITIAL_STATE } from '../../types'
-import { generateNewWord } from '../utils/generateNewWord.utils'
-
-const initialState: INITIAL_STATE = {
-	wordNow: '',
-	turn: 1,
-	currentWord: '',
-	completedWords: [],
-	gameStatus: statusGame.Playing,
-}
+import { useWordNow } from '../../context/wordNow.context'
+import wordleReducer, { initialState } from './wordleReducer.reducer'
+import { EmptyRow } from '../rows/EmptyRow.component'
+import { CompletedRow } from '../rows/CompletedRow.component'
+import { CurrentRow } from '../rows/CurrentRow.component'
+import { useWindowEvents } from '../../hooks'
+import { generateNewWord } from '../../utils'
+import { keys } from '../../data/keys'
+import { statusGame } from '../../../types'
 
 export const WordleTwo: FC = () => {
-	const [
-		{ wordNow, completedWords, turn, currentWord, gameStatus },
-		dispatchWordle,
-	] = useReducer(wordleReducer, initialState)
+	const { word: wordNow } = useWordNow()
+	const [{ completedWords, turn, currentWord, gameStatus }, dispatchWordle] =
+		useReducer(wordleReducer, initialState)
 
 	const onEnter = useCallback(() => {
 		if (currentWord === wordNow) {
@@ -55,17 +47,6 @@ export const WordleTwo: FC = () => {
 	)
 
 	useWindowEvents('keydown', handleKeyDown)
-
-	/* 	useEffect(() => {
-		const time = 300000
-		const interval = setInterval(() => {
-			dispatchWordle({ type: 'reset', payload: 'holas' })
-		}, 3000)
-
-		console.log('se ejecuta el interval')
-
-		return () => clearInterval(interval)
-	}, []) */
 
 	useEffect(() => {
 		dispatchWordle({ type: 'reset', payload: generateNewWord(0) })

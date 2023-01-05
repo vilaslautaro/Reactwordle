@@ -1,10 +1,9 @@
-import { ACTION_TYPE, statusGame } from '../../../types'
+import { ACTION_TYPE, INITIAL_STATE, statusGame } from '../../../types'
 
-const initialState = {
-	wordNow: '',
+export const initialState: INITIAL_STATE = {
 	turn: 1,
 	currentWord: '',
-	completedWords: [''],
+	completedWords: [],
 	gameStatus: statusGame.Playing,
 }
 
