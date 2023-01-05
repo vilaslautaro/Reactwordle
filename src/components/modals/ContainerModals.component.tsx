@@ -27,7 +27,7 @@ export const ModalContainer = ({ time, gameStatus }: Props) => {
 	}, [])
 
 	return (
-		<div className='font-Roboto'>
+		<div className='font-Roboto z-20'>
 			{stadistics && (
 				<StadisticsModal
 					onClose={() => closeModal('stadistics')}

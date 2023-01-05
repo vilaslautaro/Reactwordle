@@ -16,6 +16,7 @@ export const ButtonInstructions: FC = () => {
 					? 'https://res.cloudinary.com/dn7qsxzdf/image/upload/v1672855406/wordle/pregunta-dark_c3qe1s.png'
 					: 'https://res.cloudinary.com/dn7qsxzdf/image/upload/v1672855406/wordle/pregunta-light_grh8cf.png'
 			}
+			title="Instrucciones"
 			className='cursor-pointer'
 			width='27px'
 			height='27px'

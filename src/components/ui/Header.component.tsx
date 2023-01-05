@@ -5,12 +5,19 @@ import { ToggleTheme } from './ToggleTheme.component'
 
 export const Header: FC = () => {
 	return (
-		<header className='font-Roboto flex flex-wrap mx-auto mb-5 py-4 mt-14 px-5 rounded-2xl row items-center justify-between  bg-white-bg-light dark:bg-bglight-white max-w-2xl max-h-20'>
+		<header
+			className='font-Roboto grid grid-cols-3 mx-auto 
+		mb-5 py-4 mt-14 px-5 rounded-2xl row items-center
+		bg-white-bg-light dark:bg-bglight-white max-w-2xl max-h-20'
+		>
 			<ButtonInstructions />
-			<p className='text-4xl leading-10 font-semibold text-light-black dark:text-light-white'>
+			<p
+				className='text-4xl leading-10 font-semibold text-light-black dark:text-light-white
+			text-center'
+			>
 				WORDLE
 			</p>
-			<div className='flex flex-wrap row items-center justify-around '>
+			<div className='flex row items-center justify-end'>
 				<ButtonStadistics />
 				<ToggleTheme />
 			</div>
