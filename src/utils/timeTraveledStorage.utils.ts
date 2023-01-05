@@ -1,5 +1,5 @@
-export const savedTimeStorage = (time: number) => {
-	const valueTime = getTimeStorage()
+export const savedTimeTraveledStorage = (time: number) => {
+	const valueTime = getTimeTraveledStorage()
 	if (valueTime && valueTime < 972) {
 		localStorage.setItem('time', JSON.stringify(valueTime + 1))
 	} else {
@@ -7,7 +7,7 @@ export const savedTimeStorage = (time: number) => {
 	}
 }
 
-export const getTimeStorage = () => {
+export const getTimeTraveledStorage = () => {
 	const valueTime = localStorage.getItem('time')
 	return valueTime ? JSON.parse(valueTime) : false
 }

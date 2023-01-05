@@ -3,9 +3,10 @@ import { useWordNow, useGamesStadistics, useStatesModals } from '../../context'
 import { useCountdown, useWindowEvents } from '../../hooks'
 import wordleReducer, { initialState } from './wordleReducer.reducer'
 import { EmptyRow, CompletedRow, CurrentRow } from '../rows'
+import { ModalContainer } from '../modals/ContainerModals.component'
+import { Keyboard } from '../keyboard/Keyboard.component'
 import { statusGame } from '../../../types'
 import { keys } from '../../data'
-import { ModalContainer } from '../modals/ContainerModals.component'
 
 export const Wordle: FC = () => {
 	const { time } = useCountdown(300)
@@ -61,8 +62,8 @@ export const Wordle: FC = () => {
 	useWindowEvents('keydown', handleKeyDown)
 
 	return (
-		<div className='w-full grid place-content-center mx-auto sm:pb-40 2xl:pb-20'>
-			<div className='pt-10 mx-auto h-screen'>
+		<div className='w-full grid place-content-center mx-auto '>
+			<div className='pt-10 mx-auto'>
 				{completedWords.map((word, i) => (
 					<CompletedRow key={i} word={word} solution={wordNow} />
 				))}
@@ -70,6 +71,9 @@ export const Wordle: FC = () => {
 				{Array.from(Array(6 - turn)).map((_, i) => (
 					<EmptyRow key={i} />
 				))}
+			</div>
+			<div className='mx-auto pb-24'>
+				<Keyboard keys={keys} onKeyPressed={onKeyPressed} />
 			</div>
 			<ModalContainer time={time} gameStatus={gameStatus} />
 		</div>

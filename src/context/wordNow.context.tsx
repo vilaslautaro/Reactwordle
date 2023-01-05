@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from 'react'
-import { generateNewWord, savedTimeStorage } from '../utils'
+import { generateNewWord, savedTimeTraveledStorage } from '../utils'
 
 interface ContextState {
 	word: string
@@ -24,7 +24,7 @@ export const WordNowContextProvider = ({ children }: ProviderProps) => {
 	const updatedWord = (time: number) => {
 		const newWord = generateNewWord(time)
 		setWord(newWord)
-		savedTimeStorage(time)
+		savedTimeTraveledStorage(time)
 	}
 
 	return (

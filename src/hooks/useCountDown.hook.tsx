@@ -1,14 +1,13 @@
 import { useEffect, useState, useCallback } from 'react'
 import { useWordNow } from '../context'
-import { getTimeStorage } from '../utils'
+import { getTimeTraveledStorage } from '../utils'
 
 export const useCountdown = (seconds: number) => {
 	const { updatedWord } = useWordNow()
 	const [time, setTime] = useState({ minutes: 0, seconds: 0 })
 	const [timesTraveled, setTimesTraveled] = useState<number>(
-		() => getTimeStorage() | 1
+		() => getTimeTraveledStorage() | 1
 	)
-
 
 	const updatedTimeTraveled = useCallback(() => {
 		if (timesTraveled < 972) {

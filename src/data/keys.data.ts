@@ -18,6 +18,7 @@ export const keys: string[] = [
 	'J',
 	'K',
 	'L',
+	'Ñ',
 	'Z',
 	'X',
 	'C',

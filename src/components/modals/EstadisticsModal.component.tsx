@@ -16,7 +16,7 @@ export const StadisticsModal = ({ onClose, time, gameStatus }: Props) => {
 	return (
 		<>
 			{createPortal(
-				<div className='w-full h-full absolute left-0 top-0  bg-neutral-800 flex items-center justify-center'>
+				<div className='w-full fixed left-0 bottom-0 top-0  bg-neutral-800 flex items-center justify-center bg-white-bg-transparent dark:bg-dark-bg'>
 					<div className='bg-white dark:bg-dark dark:text-white px-20 pb-11 pt-12 max-w-lg w-full border-black dark:border-gray border-2 border-solid rounded-2xl'>
 						<p className='font-extrabold text-4xl text-center mb-10'>
 							Estadísticas
