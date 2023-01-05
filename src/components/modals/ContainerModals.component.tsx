@@ -6,11 +6,9 @@ import { getInstructionsStorage, savedInstructionsStorage } from '../../utils'
 const InstructionsModal = lazy(
 	() => import('./instructions/InstructionsModal.component')
 )
-const StadisticsModal = lazy(() => {
-	return new Promise((resolve) => setTimeout(resolve, 3000)).then(
-		() => import('./stadistics/StadisticsModal.component')
-	)
-})
+const StadisticsModal = lazy(
+	() => import('./stadistics/StadisticsModal.component')
+)
 
 interface Props {
 	time: { minutes: number; seconds: number }
@@ -35,7 +33,7 @@ export const ModalContainer = ({ time, gameStatus }: Props) => {
 
 	return (
 		<div className='font-Roboto z-20'>
-			<Suspense>
+			<Suspense fallback={<span>Cargando...</span>}>
 				{stadistics && (
 					<StadisticsModal
 						onClose={() => closeModal('stadistics')}
@@ -44,7 +42,7 @@ export const ModalContainer = ({ time, gameStatus }: Props) => {
 					/>
 				)}
 			</Suspense>
-			<Suspense>
+			<Suspense fallback={<span>Cargando...</span>}>
 				{instructions && (
 					<InstructionsModal onClose={() => closeModal('instructions')} />
 				)}
