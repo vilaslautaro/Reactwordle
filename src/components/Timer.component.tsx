@@ -9,8 +9,10 @@ export const Timer = ({ seconds }: Props) => {
 
 	return (
 		<div>
-			{time.minutes}:{time.seconds < 10 ? `0${time.seconds}` : time.seconds}
+			<p>SIGUIENTE PALABRA</p>
+			<p>
+				{time.minutes}:{time.seconds < 10 ? `0${time.seconds}` : time.seconds}
+			</p>
 		</div>
 	)
 }
-
