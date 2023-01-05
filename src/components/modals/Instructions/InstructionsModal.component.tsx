@@ -6,7 +6,7 @@ interface PropsModal {
 	onClose: () => void
 }
 
-export const InstructionsModal = ({ onClose }: PropsModal) => {
+const InstructionsModal = ({ onClose }: PropsModal) => {
 	const createPortal = usePortal('modal-instructions', 'div')
 
 	return (
@@ -90,3 +90,5 @@ export const InstructionsModal = ({ onClose }: PropsModal) => {
 		</>
 	)
 }
+
+export default InstructionsModal

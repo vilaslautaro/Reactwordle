@@ -9,7 +9,7 @@ interface Props {
 	gameStatus: statusGame
 }
 
-export const StadisticsModal = ({ onClose, time, gameStatus }: Props) => {
+const StadisticsModal = ({ onClose, time, gameStatus }: Props) => {
 	const createPortal = usePortal('modal-stadistics', 'div')
 	const { word } = useWordNow()
 	const { games } = useGamesStadistics()
@@ -55,3 +55,5 @@ export const StadisticsModal = ({ onClose, time, gameStatus }: Props) => {
 		</>
 	)
 }
+
+export default StadisticsModal
