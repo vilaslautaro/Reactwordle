@@ -65,20 +65,22 @@ export const Wordle: FC = () => {
 	useWindowEvents('keydown', handleKeyDown)
 
 	return (
-		<div className='font-Roboto w-full grid place-content-center mx-auto '>
-			<div className='pt-10 mx-auto'>
-				{completedWords.map((word, i) => (
-					<CompletedRow key={i} word={word} solution={wordNow} />
-				))}
-				{gameStatus === statusGame.Playing && <CurrentRow word={currentWord} />}
-				{Array.from(Array(5 - turn)).map((_, i) => (
-					<EmptyRow key={i} />
-				))}
-			</div>
-			<div className='mx-auto pb-24'>
+		<>
+			<div className='font-Roboto w-full grid place-content-center mx-auto h-max'>
+				<div className='pt-10 mx-auto'>
+					{completedWords.map((word, i) => (
+						<CompletedRow key={i} word={word} solution={wordNow} />
+					))}
+					{gameStatus === statusGame.Playing && (
+						<CurrentRow word={currentWord} />
+					)}
+					{Array.from(Array(5 - turn)).map((_, i) => (
+						<EmptyRow key={i} />
+					))}
+				</div>
 				<Keyboard keys={keys} onKeyPressed={onKeyPressed} />
+				<ModalContainer time={time} gameStatus={gameStatus} />
 			</div>
-			<ModalContainer time={time} gameStatus={gameStatus} />
-		</div>
+		</>
 	)
 }
