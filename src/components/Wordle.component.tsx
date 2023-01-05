@@ -27,7 +27,7 @@ export const Wordle: FC = () => {
 			return
 		}
 
-		if (turn === 6) {
+		if (turn === 5) {
 			updatedGames({ won: games.won, played: games.played + 1 })
 			setStadistics(true)
 			return dispatchWordle({ type: 'lost', payload: currentWord })
@@ -59,7 +59,7 @@ export const Wordle: FC = () => {
 	}, [wordNow])
 
 	useEffect(() => {
-		if (currentWord.length === 5 && turn <= 6) return onEnter()
+		if (currentWord.length === 5 && turn <= 5) return onEnter()
 	}, [currentWord, turn])
 
 	useWindowEvents('keydown', handleKeyDown)
@@ -71,7 +71,7 @@ export const Wordle: FC = () => {
 					<CompletedRow key={i} word={word} solution={wordNow} />
 				))}
 				{gameStatus === statusGame.Playing && <CurrentRow word={currentWord} />}
-				{Array.from(Array(6 - turn)).map((_, i) => (
+				{Array.from(Array(5 - turn)).map((_, i) => (
 					<EmptyRow key={i} />
 				))}
 			</div>
