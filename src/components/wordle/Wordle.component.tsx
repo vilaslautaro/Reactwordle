@@ -7,7 +7,6 @@ import { EmptyRow } from '../rows/EmptyRow.component'
 import { CompletedRow } from '../rows/CompletedRow.component'
 import { CurrentRow } from '../rows/CurrentRow.component'
 import { keys } from '../../data'
-import { ModalContainer } from '../modals/ContainerModals.component'
 
 export const Wordle: FC = () => {
 	const { word: wordNow } = useWordNow()
@@ -53,8 +52,8 @@ export const Wordle: FC = () => {
 	useWindowEvents('keydown', handleKeyDown)
 
 	return (
-		<div className='w-full grid place-content-center mx-auto '>
-			<div className='py-10 mx-auto h-screen'>
+		<div className='w-full grid place-content-center mx-auto sm:pb-40 2xl:pb-20'>
+			<div className='pt-10 mx-auto h-screen'>
 				{completedWords.map((word, i) => (
 					<CompletedRow key={i} word={word} solution={wordNow} />
 				))}
@@ -63,7 +62,6 @@ export const Wordle: FC = () => {
 					<EmptyRow key={i} />
 				))}
 			</div>
-			<ModalContainer />
 		</div>
 	)
 }
