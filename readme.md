@@ -7,6 +7,7 @@
 - [Link](#link)
 - [Ejecutar localmente](#ejecutar-localmente)
 - [Tecnologias utilizadas](#tecnologías-utilizadas)
+- [Optimizaciones](#optimizaciones)
 - [Hoja de ruta](#hoja-de-ruta)
 - [Autor](#autor)
 
@@ -51,6 +52,7 @@ Inicia la app
 
 ```bash
   npm run dev
+  #La app se abrira en localhost:5173
 ```
 
 ## Tecnologías utilizadas
@@ -77,7 +79,7 @@ Inicia la app
 
 
 ## Hoja de Ruta
--Agregar testing a componentes UI y a los custom hooks
+Agregar testing a componentes UI y a los custom hooks
 
 ## Autor
 - GitHub [@vilaslautaro](https://github.com/vilaslautaro)
