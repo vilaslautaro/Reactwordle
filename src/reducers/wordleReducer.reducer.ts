@@ -1,4 +1,4 @@
-import { ACTION_TYPE, INITIAL_STATE, statusGame } from '../../../types'
+import { ACTION_TYPE, INITIAL_STATE, statusGame } from '../types'
 
 export const initialState: INITIAL_STATE = {
 	turn: 1,

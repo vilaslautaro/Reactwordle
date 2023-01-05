@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { useStatesModals, useTheme } from '../../context'
+import { useStatesModals, useTheme } from '../../../context'
 
 interface stateThemeValues {
 	theme: string

@@ -1,4 +1,4 @@
-import { LetterStatus } from '../../types/status.types'
+import { LetterStatus } from '../types/status.types'
 
 interface propsAndReturn {
 	(letter: string, position: number, solution: string): LetterStatus

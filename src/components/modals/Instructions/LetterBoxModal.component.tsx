@@ -1,5 +1,5 @@
 import { FC } from "react"
-import { LetterStatus } from "../../../../types"
+import { LetterStatus } from "../../../types"
 
 interface LetterProps {
 	value: string

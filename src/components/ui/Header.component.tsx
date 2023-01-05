@@ -1,7 +1,7 @@
 import { FC } from 'react'
-import { ButtonInstructions } from './ButtonInstructions.component'
-import { ButtonStadistics } from './ButtonStadistics.component'
-import { ToggleTheme } from './ToggleTheme.component'
+import { ButtonInstructions } from './buttons/ButtonInstructions.component'
+import { ButtonStadistics } from './buttons/ButtonStadistics.component'
+import { ToggleTheme } from './buttons/ToggleTheme.component'
 
 export const Header: FC = () => {
 	return (

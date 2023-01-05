@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { statusGame } from '../../../types'
+import { statusGame } from '../../types'
 import { useStatesModals } from '../../context'
 import { getInstructionsStorage, savedInstructionsStorage } from '../../utils'
 import { StadisticsModal } from './stadistics/StadisticsModal.component'

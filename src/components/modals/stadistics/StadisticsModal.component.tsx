@@ -1,5 +1,5 @@
 import { useGamesStadistics, useWordNow } from '../../../context'
-import { statusGame } from '../../../../types'
+import { statusGame } from '../../../types'
 import { usePortal } from '../../../hooks'
 import { Timer } from './Timer.component'
 

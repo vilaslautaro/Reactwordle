@@ -1,5 +1,5 @@
-import { useTheme } from '../../context'
-import '../../styles/toggle.css'
+import { useTheme } from '../../../context'
+import '../../../styles/toggle.css'
 
 interface stateThemeValues {
 	theme: string
@@ -17,7 +17,9 @@ export const ToggleTheme = () => {
 			>
 				<img
 					alt={theme === 'dark' ? 'luna' : 'sol'}
-					title={theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'}
+					title={
+						theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'
+					}
 					className=' rounded-3xl shadow-inner shadow-[#00000040] transition'
 					width='60px'
 					height='30px'

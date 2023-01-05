@@ -1,4 +1,4 @@
-import { useStatesModals, useTheme } from '../../context'
+import { useStatesModals, useTheme } from "../../../context"
 
 export const ButtonStadistics = () => {
 	const { setStadistics } = useStatesModals()

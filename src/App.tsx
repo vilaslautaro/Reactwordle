@@ -1,4 +1,4 @@
-import { Wordle } from './components/wordle/Wordle.component'
+import { Wordle } from './components/Wordle.component'
 import { Header } from './components/ui/Header.component'
 import {
 	GamesStadisticsContextProvider,
