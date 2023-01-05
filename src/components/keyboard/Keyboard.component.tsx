@@ -13,7 +13,7 @@ const Keyboard: FC<KeyboardProps> = ({ keys, onKeyPressed }) => {
 
 	return (
 		<>
-			<div className='bg-keyboard-light dark:bg-keyboard-dark pt-8 pb-11 px-9 font-Roboto flex flex-wrap rounded-2xl mx-auto max-w-2xl w-full mt-14 text-light-gray dark:text-white'>
+			<div className='hidden bg-keyboard-light dark:bg-keyboard-dark pt-8 pb-11 px-9 font-Roboto sm:flex flex-wrap rounded-2xl mx-auto max-w-2xl w-full mt-14 text-light-gray dark:text-white'>
 				<div className='flex flex-wrap my-0 mx-auto'>
 					{Array.from(Array(10)).map((_, i) => (
 						<Key key={i} handleClickKey={handleInput}>

@@ -3,7 +3,7 @@ import { statusGame } from '../../types'
 import { useStatesModals } from '../../context'
 import { getInstructionsStorage, savedInstructionsStorage } from '../../utils'
 import { StadisticsModal } from './stadistics/StadisticsModal.component'
-import { InstructionsModal } from './Instructions/InstructionsModal.component'
+import { InstructionsModal } from './instructions/InstructionsModal.component'
 
 interface Props {
 	time: { minutes: number; seconds: number }

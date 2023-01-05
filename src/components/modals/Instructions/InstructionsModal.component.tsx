@@ -12,7 +12,7 @@ export const InstructionsModal = ({ onClose }: PropsModal) => {
 	return (
 		<>
 			{createPortal(
-				<div className='w-full fixed left-0 bottom-0 sm:top-20 z-30 2xl:top-0  bg-neutral-800 flex items-center justify-center bg-white-bg-transparent dark:bg-dark-bg '>
+				<div className='w-full h-screen fixed top-0 bottom-0 left-0 max-w-[calc(100% - 80px)] max-h-[calc(100% - 80px)] bg-neutral-800 z-30 flex items-center justify-center bg-white-bg-transparent dark:bg-dark-bg '>
 					<div className='bg-white dark:bg-dark dark:text-white px-6 py-3 max-w-lg w-full border-black dark:border-gray border-2 border-solid rounded-2xl'>
 						<p className='font-extrabold text-4xl text-center pt-2 pb-4'>
 							Cómo jugar

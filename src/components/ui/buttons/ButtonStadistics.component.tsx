@@ -6,7 +6,7 @@ export const ButtonStadistics = () => {
 
 	return (
 		<button
-			className='cursor-pointer mx-1'
+			className='cursor-pointer mr-3 sm:mr-5'
 			aria-label='Abrir estadisticas'
 			onClick={() => setStadistics(true)}
 		>
@@ -17,7 +17,7 @@ export const ButtonStadistics = () => {
 						: 'https://res.cloudinary.com/dn7qsxzdf/image/upload/v1672946207/wordle/estadistica/estadistica_light_lfr8od.png'
 				}
 				alt='boton estadisticas '
-				className='rounded transition mr-5'
+				className='rounded transition '
 				width='30'
 				height='24px'
 				aria-label='Estadisticas'

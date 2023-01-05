@@ -20,7 +20,7 @@ export const ToggleTheme = () => {
 					title={
 						theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'
 					}
-					className=' rounded-3xl shadow-inner shadow-[#00000040] transition'
+					className='rounded-3xl w-10 h-[30px] sm:w-[60px] sm:h-[30px] shadow-inner shadow-[#00000040] transition'
 					width='60px'
 					height='30px'
 					src={

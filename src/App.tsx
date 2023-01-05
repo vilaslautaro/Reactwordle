@@ -13,7 +13,7 @@ function App() {
 			<WordNowContextProvider>
 				<GamesStadisticsContextProvider>
 					<StatesModalsContextProvider>
-						<div className='bg-white-bg text-black w-full pt-3 font-Roboto dark:bg-dark dark:text-white'>
+						<div className='bg-white-bg text-black w-full pt-1 sm:pt-3 h-screen sm:h-full font-Roboto dark:bg-dark dark:text-white'>
 							<Header />
 							<Wordle />
 						</div>

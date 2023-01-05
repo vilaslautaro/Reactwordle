@@ -18,9 +18,11 @@ export const LetterBox: FC<LetterProps> = ({ value, status }) => {
 
 	return (
 		<div
-			className={`${statusLetter} asdflex font-bold ml-[11px] mb-[11px] w-[76px] h-[76px] text-white items-center justify-center rounded`}
+			className={`${statusLetter} asdflex font-bold ml-[9px] mb-[9px] sm:ml-[11px] sm:mb-[11px] w-[50px] sm:w-[76px] h-[50px] sm:h-[76px] text-white items-center justify-center rounded`}
 		>
-			<p className='text-4xl text-center px-4 py-6'>{value}</p>
+			<p className='text-2xl sm:text-4xl text-center py-2.5 sm:px-4 sm:py-5'>
+				{value}
+			</p>
 		</div>
 	)
 }
