@@ -1,50 +1,13 @@
-import { FC, ReactNode } from 'react'
-import { LetterStatus } from '../../../types'
-import { usePortal } from '../../hooks/usePortal'
-import { LetterBox } from '../LetterBox.component'
+import { usePortal } from '../../../hooks/usePortal.hook'
+import { BoxColors } from './ColorBox.component'
+import { LetterBoxModal } from './LetterBoxModal.component'
+
 interface PropsModal {
 	onClose: () => void
 }
 
-interface PropsBoxColors {
-	children: ReactNode | ReactNode[]
-}
-
-interface LetterProps {
-	value: string
-	status: LetterStatus
-}
-
-export const LetterBoxModal: FC<LetterProps> = ({ value, status }) => {
-	const statusLetter =
-		status === 'correct'
-			? 'bg-green'
-			: status === 'present'
-			? 'bg-yellow'
-			: status === 'absent'
-			? 'bg-gray'
-			: 'bg-white dark:bg-dark'
-
-	return (
-		<div
-			className={`${statusLetter} flex font-bold ml-[11px] w-[76px] h-[76px] text-black dark:text-white items-center 
-			justify-center rounded border-black dark:border-gray border-2 border-solid`}
-		>
-			<p className='text-4xl font-bold text-center'>{value}</p>
-		</div>
-	)
-}
-
 export const InstructionsModal = ({ onClose }: PropsModal) => {
 	const createPortal = usePortal('modal-instructions', 'div')
-
-	const BoxColors = ({ children }: PropsBoxColors) => {
-		return (
-			<div className='flex items-start justify-between flex-col flex-wrap py-1 mb-2'>
-				{children}
-			</div>
-		)
-	}
 
 	return (
 		<>
@@ -106,7 +69,7 @@ export const InstructionsModal = ({ onClose }: PropsModal) => {
 								palabra.
 							</p>
 						</BoxColors>
-						<p className='font-normal text-lg py-2'>
+						<p className='font-normal text-lg py-4'>
 							Puede haber letras repetidas. Las pistas son independientes para
 							cada letra.
 						</p>

@@ -1,27 +1,53 @@
+import { useGamesStadistics, useWordNow } from '../../context'
+import { statusGame } from '../../../types'
+import { usePortal } from '../../hooks'
 import { Timer } from '../Timer.component'
 
 interface Props {
 	onClose: () => void
-	lost?: boolean
+	time: { minutes: number; seconds: number }
+	gameStatus: statusGame
 }
 
-export const EstadisticsModal = ({ onClose, lost = false }: Props) => {
+export const StadisticsModal = ({ onClose, time, gameStatus }: Props) => {
+	const createPortal = usePortal('modal-stadistics', 'div')
+	const { word } = useWordNow()
+	const { games } = useGamesStadistics()
 	return (
-		<div>
-			<p>Estadisticas</p>
-			<div>
-				<div>
-					<p>{8}</p>
-					<p>Jugadas</p>
+		<>
+			{createPortal(
+				<div className='w-full h-full absolute left-0 top-0  bg-neutral-800 flex items-center justify-center'>
+					<div className='bg-white dark:bg-dark dark:text-white px-20 pb-11 pt-12 max-w-lg w-full border-black dark:border-gray border-2 border-solid rounded-2xl'>
+						<p className='font-extrabold text-4xl text-center mb-10'>
+							Estadísticas
+						</p>
+						<div className='flex flex-row flex-nowrap items-center justify-between mb-12'>
+							<div className='flex flex-col items-center justify-center mb-3'>
+								<p className='font-extrabold text-4xl'>{games.played}</p>
+								<p className='font-normal text-xl'>Jugadas</p>
+							</div>
+							<div className='flex flex-col items-center justify-center mb-3'>
+								<p className='font-extrabold text-4xl'>{games.won}</p>
+								<p className='font-normal text-xl'>Victorias</p>
+							</div>
+						</div>
+						{gameStatus === statusGame.Lost && (
+							<p className='font-normal text-lg mb-4 text-center'>
+								La palabra era: <span className='font-bold'>{word}</span>
+							</p>
+						)}
+						<Timer time={time} />
+						<div className='grid place-content-center mx-auto'>
+							<button
+								className='bg-green font-bold text-2xl text-white rounded mt-8 w-64 pb-2 pt-1 hover:bg-opacity-90'
+								onClick={onClose}
+							>
+								Aceptar
+							</button>
+						</div>
+					</div>
 				</div>
-				<div>
-					<p>{2}</p>
-					<p>Victorias</p>
-				</div>
-			</div>
-			{lost && <p>La palabra era: {'PERRO'}</p>}
-			<Timer seconds={300} />
-			<button onClick={onClose}>Aceptar</button>
-		</div>
+			)}
+		</>
 	)
 }

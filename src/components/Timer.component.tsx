@@ -1,16 +1,12 @@
-import { useCountdown } from '../hooks'
-
 interface Props {
-	seconds: number
+	time: { minutes: number; seconds: number }
 }
 
-export const Timer = ({ seconds }: Props) => {
-	const { time } = useCountdown(seconds)
-
+export const Timer = ({ time }: Props) => {
 	return (
-		<div>
-			<p>SIGUIENTE PALABRA</p>
-			<p>
+		<div className='flex flex-col items-center justify-center'>
+			<p className='font-normal text-lg'>SIGUIENTE PALABRA</p>
+			<p className='font-bold text-2xl'>
 				{time.minutes}:{time.seconds < 10 ? `0${time.seconds}` : time.seconds}
 			</p>
 		</div>

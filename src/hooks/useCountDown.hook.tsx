@@ -6,14 +6,15 @@ export const useCountdown = (seconds: number) => {
 	const { updatedWord } = useWordNow()
 	const [time, setTime] = useState({ minutes: 0, seconds: 0 })
 	const [timesTraveled, setTimesTraveled] = useState<number>(
-		() => getTimeStorage() | 0
+		() => getTimeStorage() | 1
 	)
+
 
 	const updatedTimeTraveled = useCallback(() => {
 		if (timesTraveled < 972) {
 			setTimesTraveled((time) => time + 1)
 		} else {
-			setTimesTraveled(0)
+			setTimesTraveled(1)
 		}
 	}, [timesTraveled])
 

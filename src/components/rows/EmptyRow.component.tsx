@@ -1,4 +1,4 @@
-import { LetterBox } from '../LetterBox.component'
+import { LetterBox } from './LetterBox.component'
 import { BoxFlexRow } from '../ui/BoxFlexRow.component'
 
 export const EmptyRow = () => {

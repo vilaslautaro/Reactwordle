@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { checkLetterStatus } from '../../utils'
-import { LetterBox } from '../LetterBox.component'
+import { LetterBox } from './LetterBox.component'
 import { BoxFlexRow } from '../ui/BoxFlexRow.component'
 
 interface RowProps {

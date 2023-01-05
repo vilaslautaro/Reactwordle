@@ -1,24 +1,32 @@
 import { FC, useCallback, useEffect, useReducer } from 'react'
-import { useWordNow } from '../../context'
-import { useWindowEvents } from '../../hooks'
-import { statusGame } from '../../../types'
+import { useWordNow, useGamesStadistics, useStatesModals } from '../../context'
+import { useCountdown, useWindowEvents } from '../../hooks'
 import wordleReducer, { initialState } from './wordleReducer.reducer'
-import { EmptyRow } from '../rows/EmptyRow.component'
-import { CompletedRow } from '../rows/CompletedRow.component'
-import { CurrentRow } from '../rows/CurrentRow.component'
+import { EmptyRow, CompletedRow, CurrentRow } from '../rows'
+import { statusGame } from '../../../types'
 import { keys } from '../../data'
+import { ModalContainer } from '../modals/ContainerModals.component'
 
 export const Wordle: FC = () => {
+	const { time } = useCountdown(300)
 	const { word: wordNow } = useWordNow()
+	const { updatedGames, games } = useGamesStadistics()
+	const { setStadistics } = useStatesModals()
+
 	const [{ completedWords, turn, currentWord, gameStatus }, dispatchWordle] =
 		useReducer(wordleReducer, initialState)
 
 	const onEnter = useCallback(() => {
 		if (currentWord === wordNow) {
-			return dispatchWordle({ type: 'win', payload: currentWord })
+			updatedGames({ won: games.won + 1, played: games.played + 1 })
+			dispatchWordle({ type: 'win', payload: currentWord })
+			setStadistics(true)
+			return
 		}
 
 		if (turn === 6) {
+			updatedGames({ won: games.won, played: games.played + 1 })
+			setStadistics(true)
 			return dispatchWordle({ type: 'lost', payload: currentWord })
 		}
 
@@ -34,9 +42,6 @@ export const Wordle: FC = () => {
 			if (key === 'BACKSPACE' && currentWord.length > 0)
 				return dispatchWordle({ type: 'delete' })
 
-			if (key === 'ENTER' && currentWord.length === 5 && turn <= 6)
-				return onEnter()
-
 			if (currentWord.length >= 5) return
 
 			if (keys.includes(key))
@@ -48,6 +53,10 @@ export const Wordle: FC = () => {
 	useEffect(() => {
 		dispatchWordle({ type: 'reset' })
 	}, [wordNow])
+
+	useEffect(() => {
+		if (currentWord.length === 5 && turn <= 6) return onEnter()
+	}, [currentWord, turn])
 
 	useWindowEvents('keydown', handleKeyDown)
 
@@ -62,6 +71,7 @@ export const Wordle: FC = () => {
 					<EmptyRow key={i} />
 				))}
 			</div>
+			<ModalContainer time={time} gameStatus={gameStatus} />
 		</div>
 	)
 }

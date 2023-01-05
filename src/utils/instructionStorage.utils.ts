@@ -8,7 +8,7 @@ export const getInstructionsStorage = () => {
 	const valueInstructions = localStorage.getItem('instructions')
 
 	if (valueInstructions) {
-		return JSON.parse(valueInstructions)
+		return false
 	}
-	return false
+	return true
 }
