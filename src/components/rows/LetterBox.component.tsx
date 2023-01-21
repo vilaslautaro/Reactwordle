@@ -8,12 +8,9 @@ interface LetterProps {
 
 export const LetterBox: FC<LetterProps> = ({ value, status }) => {
 	const statusLetter =
-		status === 'correct'
-			? 'bg-green'
-			: status === 'present'
-			? 'bg-yellow'
-			: status === 'absent'
-			? 'bg-gray'
+			  status === 'correct' ? 'bg-green'
+			: status === 'present' ? 'bg-yellow'
+			: status === 'absent' ? 'bg-gray'
 			: 'bg-letter-empty'
 
 	return (
@@ -23,7 +20,7 @@ export const LetterBox: FC<LetterProps> = ({ value, status }) => {
 			readOnly
 			value={value}
 			className={`text-2xl sm:text-4xl text-center select-none border-none outline-none
-				${statusLetter} asdflex font-bold ml-[9px] mb-[9px] sm:ml-[11px] sm:mb-[11px]
+				${statusLetter} flex font-bold ml-[9px] mb-[9px] sm:ml-[11px] sm:mb-[11px]
 				 w-[50px] sm:w-[76px] h-[50px] sm:h-[76px]
 				 text-white items-center justify-center rounded`}
 		/>

@@ -8,18 +8,12 @@ export const savedThemeStorage = (theme: Props) => {
 const addClassToHtmlTag = (theme: Props) => {
 	const themeValue = getThemeStorage()
 	const htmlTag = document.documentElement.classList
-	if (htmlTag.value === '') {
-		htmlTag.add(theme)
-	} else {
-		htmlTag.replace(themeValue, theme)
-	}
+
+	htmlTag.value === '' ? htmlTag.add(theme) : htmlTag.replace(themeValue, theme)
 }
 
 export const getThemeStorage = () => {
 	const themeValue: string | null = localStorage.getItem('theme')
 
-	if (themeValue) {
-		return JSON.parse(themeValue)
-	}
-	return false
+	return themeValue ? JSON.parse(themeValue) : false
 }

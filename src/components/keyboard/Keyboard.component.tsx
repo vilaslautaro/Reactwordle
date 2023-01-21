@@ -12,8 +12,8 @@ const Keyboard: FC<KeyboardProps> = ({ keys, onKeyPressed }) => {
 	const { theme } = useTheme()
 
 	return (
-		<div className='py-20'>
-			<div className='hidden bg-keyboard-light dark:bg-keyboard-dark py-8 px-9 font-Roboto sm:flex flex-wrap rounded-2xl mx-auto max-w-2xl w-full items-center text-light-gray dark:text-white'>
+		<div className='py-5 sm:py-20'>
+			<div className='bg-keyboard-light dark:bg-keyboard-dark py-3 px-1 sm:py-8 sm:px-9 font-Roboto flex flex-wrap rounded-2xl mx-auto max-w-2xl w-full items-center text-light-gray dark:text-white'>
 				<div className='flex flex-wrap my-0 mx-auto'>
 					{Array.from(Array(10)).map((_, i) => (
 						<Key key={i} handleClickKey={handleInput}>

@@ -4,13 +4,13 @@ interface propsAndReturn {
 	(letter: string, position: number, solution: string): LetterStatus
 }
 
-export const checkLetterStatus: propsAndReturn = (letter, position, solution) => {
+export const checkLetterStatus: propsAndReturn = (
+	letter,
+	position,
+	solution
+) => {
 	if (solution.includes(letter)) {
-		if (solution[position] === letter) {
-			return 'correct'
-		} else {
-			return 'present'
-		}
+		return solution[position] === letter ? 'correct' : 'present'
 	} else {
 		return 'absent'
 	}

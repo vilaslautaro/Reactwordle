@@ -7,8 +7,5 @@ export const savedGamesStorage = (games: Props) => {
 export const getGamesStorage = () => {
 	const gamesValue: string | null = localStorage.getItem('games')
 
-	if (gamesValue) {
-		return JSON.parse(gamesValue)
-	}
-	return false
+	return gamesValue ? JSON.parse(gamesValue) : false
 }

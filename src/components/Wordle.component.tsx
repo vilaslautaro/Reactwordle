@@ -8,7 +8,7 @@ import EmptyRow from './rows/EmptyRow.component'
 import Keyboard from './keyboard/Keyboard.component'
 import { ModalContainer } from './modals/ContainerModals.component'
 import { statusGame } from '../types'
-import { keys } from '../data'
+import { keys } from '../data' 	
 
 export const Wordle: FC = () => {
 	const { time } = useCountdown(300)
@@ -23,8 +23,7 @@ export const Wordle: FC = () => {
 		if (currentWord === wordNow) {
 			updatedGames({ won: games.won + 1, played: games.played + 1 })
 			dispatchWordle({ type: 'win', payload: currentWord })
-			setStadistics(true)
-			return
+			return setStadistics(true)
 		}
 
 		if (turn === 5) {
@@ -40,15 +39,11 @@ export const Wordle: FC = () => {
 
 	const onKeyPressed = useCallback(
 		(key: string) => {
-			if (gameStatus !== statusGame.Playing) return
+			gameStatus !== statusGame.Playing || currentWord.length >= 5 && null
 
-			if (key === 'BACKSPACE' && currentWord.length > 0)
-				return dispatchWordle({ type: 'delete' })
+			key === 'BACKSPACE' && currentWord.length > 0 && dispatchWordle({ type: 'delete' })
 
-			if (currentWord.length >= 5) return
-
-			if (keys.includes(key))
-				return dispatchWordle({ type: 'onInput', payload: key })
+			keys.includes(key) && dispatchWordle({ type: 'onInput', payload: key })
 		},
 		[gameStatus, currentWord, turn]
 	)
@@ -59,7 +54,7 @@ export const Wordle: FC = () => {
 	}, [wordNow])
 
 	useEffect(() => {
-		if (currentWord.length === 5 && turn <= 5) return onEnter()
+		currentWord.length === 5 && turn <= 5 && onEnter()
 	}, [currentWord, turn])
 
 	useWindowEvents('keydown', handleKeyDown)

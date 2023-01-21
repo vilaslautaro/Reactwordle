@@ -9,12 +9,11 @@ export const useCountdown = (seconds: number) => {
 		() => getTimeTraveledStorage() | 1
 	)
 
+	//update the number of times the time was restarted
 	const updatedTimeTraveled = useCallback(() => {
-		if (timesTraveled < 972) {
-			setTimesTraveled((time) => time + 1)
-		} else {
-			setTimesTraveled(1)
-		}
+		timesTraveled < 972
+			? setTimesTraveled((time) => time + 1)
+			: setTimesTraveled(1)
 	}, [timesTraveled])
 
 	const updatedTime = useCallback(() => {

@@ -16,9 +16,7 @@ export const usePortal = (id: string, element: string) => {
 		if (!refModal || typeof document === 'undefined') {
 			return
 		}
-		if (divApp) {
-			divApp.parentNode?.insertBefore(refModal, divApp)
-		}
+		divApp && divApp.parentNode?.insertBefore(refModal, divApp)
 		return () => {
 			document.getElementById(id)?.remove()
 		}

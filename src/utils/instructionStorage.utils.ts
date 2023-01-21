@@ -7,8 +7,5 @@ export const savedInstructionsStorage = () => {
 export const getInstructionsStorage = () => {
 	const valueInstructions = localStorage.getItem('instructions')
 
-	if (valueInstructions) {
-		return false
-	}
-	return true
+	return valueInstructions ? false : true
 }
